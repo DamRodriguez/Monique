@@ -1,5 +1,5 @@
 function loadNavbar() {
-    fetch('/proyecto/src/components/navbar.html')  // Ruta relativa desde public/index.html
+    fetch('/src/components/navbar.html')  // Ruta relativa desde public/index.html
         .then(response => {
             if (!response.ok) {
                 throw new Error('Red error');
