@@ -2,12 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.navFondo{
-    background-color: rgb(235,174,238);
-    background: radial-gradient(circle, rgba(235,174,238,1) 0%, rgba(206,148,233,1) 100%);
+.slide {
+    @apply absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 bg-transparent;
+    opacity: 0;
 }
-
-.fondoDropdown{
-    background-color: rgb(235,174,238);
-    background: linear-gradient(360deg, rgba(235,174,238,1) 0%, rgba(206,148,233,1) 100%);
+.slide.active {
+    @apply opacity-100;
 }

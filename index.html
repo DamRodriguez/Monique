@@ -18,36 +18,75 @@
             <!-- Carousel wrapper -->
             <div class="relative h-full w-full overflow-hidden">
                 <!-- Item 1 -->
-                <div class="hidden duration-1000 ease-in-out h-full w-full" data-carousel-item>
+                <div class="hidden duration-700 ease-in-out h-full w-full" data-carousel-item>
                     <img src="public/assets/images/fondo1.jpg" class="block w-full h-full object-cover" alt="Imagen 1">
-                    <div class="border-r border-b absolute top-1/3 sm:top-1/2 xl:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl bg-black bg-opacity-0 shadow-lg backdrop-blur-sm p-2 pl-4 pr-4 rounded-md">
-                        <h1 class="text-4xl font-extrabold text-gray-200 dark:text-white sm:text-5xl xl:text-6xl">
+                    <div class="absolute top-1/2 sm:top-1/2 xl:top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 text-5xl bg-black bg-opacity-0 shadow-lg backdrop-blur-sm p-2 pl-4 pr-4 rounded-md">
+                        <h1 class="text-4xl font-extrabold text-gray-200 dark:text-white sm:text-5xl xl:text-6xl text-start text-shadow-md grid">
                             Realza tu
-                            <span class="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-pink-300">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-tr from-pink-400 to-pink-200 text-shadow-none">
                             belleza
                             </span>
                             con productos de la
-                            <span class="text-transparent bg-clip-text bg-gradient-to-tr from-pink-500 to-pink-300">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-tr from-pink-400 to-pink-200 text-shadow-none">
                             mejor calidad
                             </span>
                         </h1>
                         
-                        <div class="flex justify-center">
-                        <button class="mt-5 shadow-lg relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden lg:text-xl md:text-lg text-sm font-semibold text-white rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 hover:scale-105 focus:scale-100 hover:transition-transform">
-                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-black bg-opacity-10 backdrop-blur-lg dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                            Ver productos
+                        <div class="flex">
+                        <button class="btn border-none text-shadow-md mt-5 shadow-lg p-0.5 mb-2 overflow-hidden lg:text-xl md:text-lg text-sm font-bold text-gray-50 rounded-xl group bg-gradient-to-b from-pink-200 to-purple-500 hover:scale-105 hover:transition-transform">
+                            <span class="relative px-10 py-2.5 transition-all ease-in duration-75 bg-black bg-opacity-10 backdrop-blur-lg dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            <p>Ver productos</p>
                             </span>
                         </button>
                         </div>
                     </div>
+
+                    <div class="absolute top-1/2 right-0 md:right-0 xl:right-0 -translate-y-1/2 -translate-x-1/4 text-5xl flex flex-col items-center text-center ">
+                        <h2 class="text-4xl font-normal text-gray-200 sm:text-5xl xl:text-5xl text-start text-shadow-md bg-black bg-opacity-0 shadow-lg backdrop-blur-sm p-2 pl-4 pr-4 rounded-md">
+                            Línea
+                            <span class="text-transparent bg-clip-text bg-gradient-to-bl from-purple-400 to-purple-950 text-shadow-none font-bold font-serif">
+                            VIOLETTE
+                            </span>
+                        </h2>
+
+                        <h3 class="m-5 text-4xl italic font-serif text-gray-50 sm:text-5xl xl:text-xl text-start text-shadow-md bg-white bg-opacity-25 p-2 w-fit shadow-lg backdrop-blur-sm transform skew-x-12">
+                            Floral - Frutal
+                        </h3>
+
+                        <div class="relative rounded-full overflow-visible w-52 h-52 mx-auto">
+                            <div class="slide active">
+                                <h4 class="text-3xl font-normal text-gray-200 sm:text-5xl xl:text-lg text-center text-shadow-md bg-black bg-opacity-0 shadow-lg backdrop-blur-sm p-2 rounded-md">
+                                    Crema corporal perfumada
+                                </h4>
+                                <img src="public/assets/images/perfume-violette.png"  alt="perfume-violette-monique">
+                                <p>100g</p>
+                            </div>
+                            <img src="public/assets/images/crema-violette.png" class="slide" alt="crema-violette-monique">
+                            <img src="public/assets/images/perfume-floral.png" class="slide" alt="perfume-floral-monique">
+                        </div>
+                          
+
+                        
+                        
+
+
+
+                          
+
+                        
+
+
+                    </div>
+
+                    
                 </div>
                 <!-- Item 2 -->
-                <div class="hidden duration-1000 ease-in-out h-full w-full" data-carousel-item>
-                    <img src="public/assets/images/productos.jpg" class="block w-full h-full object-cover" alt="Imagen 2">
+                <div class="hidden duration-700 ease-in-out h-full w-full" data-carousel-item>
+                    <img src="" class="block w-full h-full object-cover" alt="Imagen 2">
                 </div>
                 <!-- Item 3 -->
-                <div class="hidden duration-1000 ease-in-out h-full w-full" data-carousel-item>
-                    <img src="public/assets/images/productos.jpg" class="block w-full h-full object-cover" alt="Imagen 3">
+                <div class="hidden duration-700 ease-in-out h-full w-full" data-carousel-item>
+                    <img src="" class="block w-full h-full object-cover" alt="Imagen 3">
                 </div>
             </div>
             <!-- Slider indicators -->
@@ -74,7 +113,7 @@
     </footer>
 
     <script src="src/componentes/navbar.js"></script>
-    <script src="src/js/navbar-activo.js"></script>
+    <scrit src="src/js/slider.js"></scrit> 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 
 </body>

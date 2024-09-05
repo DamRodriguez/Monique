@@ -16,6 +16,7 @@ module.exports = {
     require('@tailwindcss/forms'),  
     require('daisyui'),  
     require('flowbite/plugin'),
+    require('tailwindcss-textshadow'),
   ],
   daisyui: {
     themes: ["light", "dark"],
