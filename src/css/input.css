@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 .slide {
-    @apply absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 bg-transparent;
+    @apply absolute inset-0 w-full h-full object-contain transition-all duration-1000 bg-transparent ease-in;
     opacity: 0;
 }
 .slide.active {
     @apply opacity-100;
 }
+
+.sombraImagen{
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.486));
+  }
