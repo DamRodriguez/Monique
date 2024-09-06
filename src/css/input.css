@@ -37,11 +37,10 @@
       background-position: 0% 0%;
     }
 }
-  
+
 .animated-gradient {
     background: rgb(245, 99, 255);
     background: linear-gradient(35deg, rgb(255, 255, 255) 0%, rgb(255, 145, 207) 100%);
     background-size: 400% 400%;
     animation: gradientAnimation 2s ease-in infinite;
-    
-  }
+}
