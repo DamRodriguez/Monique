@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="border-gray-200 fixed w-full z-20 top-0 start-0 bg-transparent">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse hover:scale-105 hover:transition-transform">
-            <img src="public/assets/images/monique-logo.png" class="h-5 md:h-6 xl:h-10 filter invert brightness-0" alt="Monique Logo"/>
+            <img src="public/assets/images/monique-logo.png" class="ml-2 h-5 md:h-6 xl:h-10 filter invert brightness-0" alt="Monique Logo"/>
         </a>
         <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:bg-none hover:scale-105" aria-controls="navbar-solid-bg" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
