@@ -4201,6 +4201,12 @@ details.collapse summary::-webkit-details-marker {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-pink-100 {
+  --tw-gradient-from: #FCE8F3 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(252 232 243 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-pink-400 {
   --tw-gradient-to: #F17EB8 var(--tw-gradient-to-position);
 }
