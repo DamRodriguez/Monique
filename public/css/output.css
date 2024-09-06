@@ -4456,6 +4456,22 @@ details.collapse summary::-webkit-details-marker {
   opacity: 0.2;
 }
 
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-25 {
+  opacity: 0.25;
+}
+
+.opacity-10 {
+  opacity: 0.1;
+}
+
+.opacity-15 {
+  opacity: 0.15;
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -4973,6 +4989,14 @@ details.collapse summary::-webkit-details-marker {
     line-height: 1.25rem;
   }
 
+  .md\:opacity-15 {
+    opacity: 0.15;
+  }
+
+  .md\:opacity-10 {
+    opacity: 0.1;
+  }
+
   .md\:shadow-none {
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
@@ -5107,6 +5131,34 @@ details.collapse summary::-webkit-details-marker {
   .xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .xl\:opacity-15 {
+    opacity: 0.15;
+  }
+
+  .xl\:opacity-30 {
+    opacity: 0.3;
+  }
+
+  .xl\:opacity-35 {
+    opacity: 0.35;
+  }
+
+  .xl\:opacity-50 {
+    opacity: 0.5;
+  }
+
+  .xl\:opacity-10 {
+    opacity: 0.1;
+  }
+
+  .xl\:opacity-0 {
+    opacity: 0;
+  }
+
+  .xl\:opacity-20 {
+    opacity: 0.2;
   }
 
   .xl\:shadow-none {
