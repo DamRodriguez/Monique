@@ -19,9 +19,29 @@
 }
 
 .shadowColor2{
-    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.201));
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.453));
 }
 
 .sombraBoton{
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.316));
 }
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+}
+  
+.animated-gradient {
+    background: rgb(245, 99, 255);
+    background: linear-gradient(35deg, rgb(255, 255, 255) 0%, rgb(255, 145, 207) 100%);
+    background-size: 400% 400%;
+    animation: gradientAnimation 2s ease-in infinite;
+    
+  }
