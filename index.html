@@ -18,8 +18,16 @@
             <!-- Carousel wrapper -->
             <div class="relative h-full w-full overflow-hidden">
                 <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out h-full w-full" data-carousel-item> 
-                    <img src="public/assets/images/fondo1.jpg" class="block w-full h-full object-cover" alt="Imagen 1">
+                <div class="hidden duration-700 ease-in-out h-full w-full" data-carousel-item>
+                    <span class="hidden xl:flex w-full h-full">
+                        <img src="public/assets/images/fondo1.jpg" class="w-full h-full object-cover" alt="Imagen 1">
+                    </span>
+                    
+                    <!-- Imagen para dispositivos móviles (xs hasta sm) -->
+                    <span class="flex xl:hidden w-full h-full">
+                        <img src="public/assets/images/fondo2.jpg" class="w-full h-full object-cover" alt="Imagen 2">
+                    </span>
+                    
                     <div class="absolute top-1/4 mt-8 left-1/2 w-full xl:w-auto xl:left-1/3 md:w-auto md:left-1/3  md:top-1/2 xl:top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl bg-black bg-opacity-0 shadow-lg backdrop-blur-sm p-2 pl-4 pr-4 rounded-md">
                         <h1 class="justify-center text-start text-3xl font-extrabold text-gray-200 dark:text-white sm:text-4xl md:text-5xl xl:text-6xl text-shadow-md grid">
                             Realza tu
