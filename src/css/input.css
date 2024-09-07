@@ -15,11 +15,11 @@
 }
 
 .shadowColor{
-    filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.279));
+    filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.374));
 }
 
 .shadowColor2{
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.453));
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.522));
 }
 
 .sombraBoton{
