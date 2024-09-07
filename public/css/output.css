@@ -3726,6 +3726,10 @@ details.collapse summary::-webkit-details-marker {
   margin-bottom: 0.5rem;
 }
 
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -3752,18 +3756,6 @@ details.collapse summary::-webkit-details-marker {
 
 .mt-7 {
   margin-top: 1.75rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .block {
@@ -4452,20 +4444,8 @@ details.collapse summary::-webkit-details-marker {
   opacity: 1;
 }
 
-.opacity-15 {
-  opacity: 0.15;
-}
-
 .opacity-20 {
   opacity: 0.2;
-}
-
-.opacity-10 {
-  opacity: 0.1;
-}
-
-.opacity-30 {
-  opacity: 0.3;
 }
 
 .shadow {
@@ -5192,12 +5172,12 @@ a .borde {
     top: 50%;
   }
 
-  .md\:mt-0 {
-    margin-top: 0px;
-  }
-
   .md\:mb-4 {
     margin-bottom: 1rem;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
   }
 
   .md\:block {
@@ -5312,10 +5292,6 @@ a .borde {
     line-height: 1.25rem;
   }
 
-  .md\:opacity-10 {
-    opacity: 0.1;
-  }
-
   .md\:opacity-15 {
     opacity: 0.15;
   }
@@ -5357,20 +5333,16 @@ a .borde {
     top: 50%;
   }
 
+  .xl\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
   .xl\:mt-0 {
     margin-top: 0px;
   }
 
   .xl\:mt-5 {
     margin-top: 1.25rem;
-  }
-
-  .xl\:mb-4 {
-    margin-bottom: 1rem;
-  }
-
-  .xl\:mb-5 {
-    margin-bottom: 1.25rem;
   }
 
   .xl\:flex {
@@ -5479,10 +5451,6 @@ a .borde {
   .xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .xl\:opacity-10 {
-    opacity: 0.1;
   }
 
   .xl\:opacity-15 {
