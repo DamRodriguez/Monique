@@ -4180,6 +4180,12 @@ details.collapse summary::-webkit-details-marker {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-purple-100 {
+  --tw-gradient-from: #EDEBFE var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(237 235 254 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-purple-300 {
   --tw-gradient-to: #CABFFD var(--tw-gradient-to-position);
 }
@@ -4190,6 +4196,10 @@ details.collapse summary::-webkit-details-marker {
 
 .to-purple-600 {
   --tw-gradient-to: #7E3AF2 var(--tw-gradient-to-position);
+}
+
+.to-purple-400 {
+  --tw-gradient-to: #AC94FA var(--tw-gradient-to-position);
 }
 
 .bg-clip-text {
