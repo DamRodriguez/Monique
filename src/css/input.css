@@ -15,7 +15,7 @@
 }
 
 .shadowColor{
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.163));
+    filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.279));
 }
 
 .shadowColor2{
@@ -55,3 +55,28 @@ a .borde {
     left: 50%;
     transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
 }
+
+.fondoGradiente {
+    --x-0: 82%;
+    --y-0: 1%;
+    --c-0: hsla(249, 53%, 89%, 0);
+    --c-1: hsl(270, 92%, 71%);
+    --y-1: 0%;
+    --x-1: 0%;
+    --c-2: hsl(0, 0%, 100%);
+    --x-2: 92%;
+    --y-2: 11%;
+    --x-3: 86%;
+    --c-3: hsla(335, 92%, 86%, 0);
+    --y-3: 15%;
+    --x-4: 50%;
+    --y-4: 67%;
+    --c-4: hsla(247, 58%, 97%, 0);
+    ;
+    background-color: hsla(277, 100%, 50%, 0.751);
+    background-image: radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)), radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4));
+    animation: hero-gradient-animation 10s linear infinite alternate;
+    background-blend-mode: normal, normal, normal, normal, normal;
+}
+
+@keyframes hero-gradient-animation{0%{--x-0:82%; --y-0:1%; --s-start-0:1%; --s-end-0:85%; --c-0:hsla(249,53%,89%,0); --s-start-1:11%; --s-end-1:54.91369993085501%; --c-1:hsla(270,95%,75%,0.96); --y-1:0%; --x-1:0%; --x-3:86%; --c-3:hsla(335,92%,86%,0); --y-3:15%; --s-start-3:19%; --s-end-3:52%; --x-4:50%; --s-start-4:20%; --s-end-4:52%; --y-4:67%; --c-4:hsla(247,58%,97%,0);}100%{--x-0:48%; --y-0:7%; --s-start-0:15%; --s-end-0:54%; --c-0:hsla(230,97%,93%,0); --s-start-1:6.243780609158845%; --s-end-1:99.10895305701352%; --c-1:hsla(229,86%,98%,1); --y-1:53%; --x-1:47%; --x-3:6%; --c-3:hsla(352,97%,65%,0); --y-3:75%; --s-start-3:6%; --s-end-3:73%; --x-4:64%; --s-start-4:14%; --s-end-4:88%; --y-4:47%; --c-4:hsla(352,70%,92%,0);}}@property --x-0{syntax:'<percentage>';inherits:false;initial-value:82%}@property --y-0{syntax:'<percentage>';inherits:false;initial-value:1%}@property --s-start-0{syntax:'<percentage>';inherits:false;initial-value:1%}@property --s-end-0{syntax:'<percentage>';inherits:false;initial-value:85%}@property --c-0{syntax:'<color>';inherits:false;initial-value:hsla(249,53%,89%,0)}@property --s-start-1{syntax:'<percentage>';inherits:false;initial-value:11%}@property --s-end-1{syntax:'<percentage>';inherits:false;initial-value:54.91369993085501%}@property --c-1{syntax:'<color>';inherits:false;initial-value:hsla(270,95%,75%,0.96)}@property --y-1{syntax:'<percentage>';inherits:false;initial-value:0%}@property --x-1{syntax:'<percentage>';inherits:false;initial-value:0%}@property --s-start-2{syntax:'<percentage>';inherits:false;initial-value:12%}@property --s-end-2{syntax:'<percentage>';inherits:false;initial-value:69%}@property --c-2{syntax:'<color>';inherits:false;initial-value:hsla(291,59%,66%,0.94)}@property --x-2{syntax:'<percentage>';inherits:false;initial-value:92%}@property --y-2{syntax:'<percentage>';inherits:false;initial-value:11%}@property --x-3{syntax:'<percentage>';inherits:false;initial-value:86%}@property --c-3{syntax:'<color>';inherits:false;initial-value:hsla(335,92%,86%,0)}@property --y-3{syntax:'<percentage>';inherits:false;initial-value:15%}@property --s-start-3{syntax:'<percentage>';inherits:false;initial-value:19%}@property --s-end-3{syntax:'<percentage>';inherits:false;initial-value:52%}@property --x-4{syntax:'<percentage>';inherits:false;initial-value:50%}@property --s-start-4{syntax:'<percentage>';inherits:false;initial-value:20%}@property --s-end-4{syntax:'<percentage>';inherits:false;initial-value:52%}@property --y-4{syntax:'<percentage>';inherits:false;initial-value:67%}@property --c-4{syntax:'<color>';inherits:false;initial-value:hsla(247,58%,97%,0)}.your_css_selector_here{--x-0:82%;--y-0:1%;--c-0:hsla(249,53%,89%,0);--c-1:hsla(270,95%,75%,0.96);--y-1:0%;--x-1:0%;--c-2:hsla(291,59%,66%,0.94);--x-2:92%;--y-2:11%;--x-3:86%;--c-3:hsla(335,92%,86%,0);--y-3:15%;--x-4:50%;--y-4:67%;--c-4:hsla(247,58%,97%,0);;background-color:hsla(273,98%,79%,0.96);background-image:radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0),transparent var(--s-end-0)),radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1),transparent var(--s-end-1)),radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2),transparent var(--s-end-2)),radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3),transparent var(--s-end-3)),radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4),transparent var(--s-end-4));animation:hero-gradient-animation 10s linear infinite alternate;background-blend-mode:normal,normal,normal,normal,normal;}
