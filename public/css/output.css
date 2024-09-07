@@ -4439,24 +4439,8 @@ details.collapse summary::-webkit-details-marker {
   opacity: 1;
 }
 
-.opacity-90 {
-  opacity: 0.9;
-}
-
-.opacity-20 {
-  opacity: 0.2;
-}
-
 .opacity-30 {
   opacity: 0.3;
-}
-
-.opacity-50 {
-  opacity: 0.5;
-}
-
-.opacity-40 {
-  opacity: 0.4;
 }
 
 .shadow {
@@ -4652,7 +4636,7 @@ a .borde {
   --x-0: 82%;
   --y-0: 1%;
   --c-0: hsla(249, 53%, 89%, 0);
-  --c-1: hsla(323, 100%, 74%, 0.899);
+  --c-1: hsla(323, 100%, 80%, 0.899);
   --y-1: 0%;
   --x-1: 0%;
   --c-2: hsla(0, 0%, 0%, 0.67);
@@ -4664,7 +4648,7 @@ a .borde {
   --x-4: 50%;
   --y-4: 67%;
   --c-4: hsla(247, 58%, 97%, 0);
-  background-color: hsla(279, 100%, 65%, 0.481);
+  background-color: hsla(279, 100%, 84%, 0.481);
   background-image: radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)), radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4));
   animation: hero-gradient-animation 10s linear infinite alternate;
   background-blend-mode: normal, normal, normal, normal, normal;
@@ -5299,10 +5283,6 @@ a .borde {
     line-height: 1.25rem;
   }
 
-  .md\:opacity-15 {
-    opacity: 0.15;
-  }
-
   .md\:opacity-20 {
     opacity: 0.2;
   }
@@ -5470,18 +5450,6 @@ a .borde {
   .xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .xl\:opacity-15 {
-    opacity: 0.15;
-  }
-
-  .xl\:opacity-40 {
-    opacity: 0.4;
-  }
-
-  .xl\:opacity-30 {
-    opacity: 0.3;
   }
 
   .xl\:opacity-20 {
