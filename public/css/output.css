@@ -4180,14 +4180,8 @@ details.collapse summary::-webkit-details-marker {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-pink-100 {
-  --tw-gradient-from: #FCE8F3 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(252 232 243 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.to-purple-400 {
-  --tw-gradient-to: #AC94FA var(--tw-gradient-to-position);
+.to-purple-300 {
+  --tw-gradient-to: #CABFFD var(--tw-gradient-to-position);
 }
 
 .to-purple-500 {
@@ -4196,14 +4190,6 @@ details.collapse summary::-webkit-details-marker {
 
 .to-purple-600 {
   --tw-gradient-to: #7E3AF2 var(--tw-gradient-to-position);
-}
-
-.to-purple-800 {
-  --tw-gradient-to: #5521B5 var(--tw-gradient-to-position);
-}
-
-.to-purple-300 {
-  --tw-gradient-to: #CABFFD var(--tw-gradient-to-position);
 }
 
 .bg-clip-text {
@@ -4442,6 +4428,14 @@ details.collapse summary::-webkit-details-marker {
 
 .opacity-20 {
   opacity: 0.2;
+}
+
+.opacity-15 {
+  opacity: 0.15;
+}
+
+.opacity-10 {
+  opacity: 0.1;
 }
 
 .shadow {
@@ -5271,6 +5265,10 @@ a .borde {
     opacity: 0.25;
   }
 
+  .md\:opacity-10 {
+    opacity: 0.1;
+  }
+
   .md\:shadow-none {
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
@@ -5407,8 +5405,20 @@ a .borde {
     line-height: 1.75rem;
   }
 
+  .xl\:opacity-20 {
+    opacity: 0.2;
+  }
+
   .xl\:opacity-25 {
     opacity: 0.25;
+  }
+
+  .xl\:opacity-15 {
+    opacity: 0.15;
+  }
+
+  .xl\:opacity-10 {
+    opacity: 0.1;
   }
 
   .xl\:shadow-none {
