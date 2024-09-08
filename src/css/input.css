@@ -83,10 +83,11 @@ a .borde {
 
 .botonLavanda{
     background-image: 
-    linear-gradient(35deg, rgba(224, 161, 255, 0.216) 0%, rgba(0, 0, 0, 0.374) 100%),
-    url('../../public/assets/images/lavanda1.jpg');
-  background-size: 100% 100%, cover; /* El degradado se anima, la imagen permanece fija */
-  background-position: 0% 50%, end; /* Solo el degradado se moverá */
-  background-blend-mode: normal;
-  border: groove;
+    linear-gradient(35deg, rgba(183, 39, 255, 0.171) 0%, rgba(179, 28, 255, 0.155) 100%),
+    url('../../public/assets/images/lavanda2.jpg');
+    background-size: 100% 100%, cover; /* El degradado se anima, la imagen permanece fija */
+    background-position: 0% 50%, end; /* Solo el degradado se moverá */
+    background-blend-mode: normal;
+    border: solid;
+
 }
