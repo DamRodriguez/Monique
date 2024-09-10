@@ -4704,8 +4704,8 @@ a .borde {
 .fondoProductos {
   background: 
         linear-gradient(
-            rgba(255, 148, 218, 0.218), /* Color del gradiente con opacidad */
-            rgba(251, 200, 229, 0.5)  /* Color del gradiente con opacidad */
+            rgba(252, 233, 247, 0.386), /* Color del gradiente con opacidad */
+            rgba(255, 232, 245, 0.708)  /* Color del gradiente con opacidad */
         ), 
         url('../../public/assets/images/fondoProductos.png');
   /* Reemplaza con la ruta de tu imagen */
