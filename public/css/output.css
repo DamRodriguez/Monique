@@ -4196,18 +4196,8 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 0.25;
 }
 
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-
-.from-purple-100 {
-  --tw-gradient-from: #EDEBFE var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(237 235 254 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .from-white {
@@ -4216,38 +4206,8 @@ details.collapse summary::-webkit-details-marker {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-purple-200 {
-  --tw-gradient-from: #DCD7FE var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(220 215 254 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.to-purple-400 {
-  --tw-gradient-to: #AC94FA var(--tw-gradient-to-position);
-}
-
-.to-purple-900 {
-  --tw-gradient-to: #4A1D96 var(--tw-gradient-to-position);
-}
-
-.to-purple-500 {
-  --tw-gradient-to: #9061F9 var(--tw-gradient-to-position);
-}
-
-.to-purple-300 {
-  --tw-gradient-to: #CABFFD var(--tw-gradient-to-position);
-}
-
-.to-purple-600 {
-  --tw-gradient-to: #7E3AF2 var(--tw-gradient-to-position);
-}
-
-.to-purple-800 {
-  --tw-gradient-to: #5521B5 var(--tw-gradient-to-position);
-}
-
-.to-purple-700 {
-  --tw-gradient-to: #6C2BD9 var(--tw-gradient-to-position);
+.to-purple-950 {
+  --tw-gradient-to: #3b0764 var(--tw-gradient-to-position);
 }
 
 .bg-clip-text {
@@ -4482,10 +4442,6 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.text-transparent {
-  color: transparent;
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -4667,7 +4623,7 @@ html, body {
 }
 
 .gradienteIndex {
-  background: linear-gradient(35deg, rgba(0, 0, 0, 0.316) 0%, rgba(231, 169, 255, 0.296) 100%);
+  background: linear-gradient(35deg, rgba(0, 0, 0, 0.316) 0%, rgba(233, 179, 254, 0.371) 100%);
 }
 
 a.activo .borde {
@@ -4727,7 +4683,6 @@ a .borde {
   background-repeat: no-repeat;
   /* Evita que la imagen se repita */
   /* Opcional: Añade otros estilos según necesites */
-  background-blend-mode:;
 }
 
 /* Puedes agregar estos estilos a tu archivo CSS */
@@ -4769,7 +4724,17 @@ a .borde {
 
 .textoIndex{
   background-image: 
-        linear-gradient(rgba(236, 150, 253, 0), rgba(255, 255, 255, 0.166)),
+        linear-gradient(rgba(255, 255, 255, 0.462), rgba(97, 0, 146, 0.188)),
+        url("https://png.pngtree.com/thumb_back/fw800/background/20231229/pngtree-aesthetic-watercolor-gradient-hand-painted-pastel-purple-background-with-light-lavender-image_13844899.png");
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.textoIndex2{
+  background-image: 
+        linear-gradient(rgba(232, 173, 255, 0.281), rgba(74, 10, 100, 0.801)),
         url("https://png.pngtree.com/thumb_back/fw800/background/20231229/pngtree-aesthetic-watercolor-gradient-hand-painted-pastel-purple-background-with-light-lavender-image_13844899.png");
   background-size: cover;
   background-clip: text;

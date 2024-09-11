@@ -34,7 +34,7 @@ html, body {
 }
 
 .gradienteIndex {
-    background: linear-gradient(35deg, rgba(0, 0, 0, 0.316) 0%, rgba(231, 169, 255, 0.296) 100%);
+    background: linear-gradient(35deg, rgba(0, 0, 0, 0.316) 0%, rgba(233, 179, 254, 0.371) 100%);
 }
 
 a.activo .borde {
@@ -87,7 +87,6 @@ a .borde {
     background-position: center; /* Centra la imagen en el contenedor */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     /* Opcional: Añade otros estilos según necesites */
-    background-blend-mode:;
 }
 
 /* Puedes agregar estos estilos a tu archivo CSS */
@@ -121,7 +120,17 @@ a .borde {
 
 .textoIndex{
     background-image: 
-        linear-gradient(rgba(236, 150, 253, 0), rgba(255, 255, 255, 0.166)),
+        linear-gradient(rgba(255, 255, 255, 0.462), rgba(97, 0, 146, 0.188)),
+        url("https://png.pngtree.com/thumb_back/fw800/background/20231229/pngtree-aesthetic-watercolor-gradient-hand-painted-pastel-purple-background-with-light-lavender-image_13844899.png");
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.textoIndex2{
+    background-image: 
+        linear-gradient(rgba(232, 173, 255, 0.281), rgba(74, 10, 100, 0.801)),
         url("https://png.pngtree.com/thumb_back/fw800/background/20231229/pngtree-aesthetic-watercolor-gradient-hand-painted-pastel-purple-background-with-light-lavender-image_13844899.png");
     background-size: cover;
     background-clip: text;
