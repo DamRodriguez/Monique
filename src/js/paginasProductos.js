@@ -5,40 +5,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevPageButton = document.getElementById('prev-page');
     const nextPageButton = document.getElementById('next-page');
     const loadingSpinner = document.getElementById('loading-spinner');
+    const searchInput = document.getElementById('search-input');
+    const suggestionsContainer = document.getElementById('suggestions');
+    const lupaIcono = document.getElementById('lupa-icono');
+    
+
     let currentCategory = 'all';
     let currentPage = 1;
-    let products = []; // Aquí se cargarán los productos desde el JSON
+    let products = [];
+    let searchQuery = ''; // Variable para almacenar la consulta de búsqueda
 
-    // Mostrar el spinner de carga
     function showLoadingSpinner() {
         loadingSpinner.style.display = 'flex';
     }
 
-    // Ocultar el spinner de carga
     function hideLoadingSpinner() {
         loadingSpinner.style.display = 'none';
     }
 
-    // Cargar los datos desde un archivo JSON
     function loadJSONData() {
-        showLoadingSpinner(); // Mostrar el spinner al comenzar la carga
+        showLoadingSpinner();
         fetch('../../public/data/productos.json')
             .then(response => response.json())
             .then(data => {
                 products = data;
-                updateGallery(); // Actualizar la galería después de cargar los datos
-                hideLoadingSpinner(); // Ocultar el spinner una vez cargado
+                updateGallery();
+                hideLoadingSpinner();
             })
             .catch(error => {
                 console.error('Error al cargar el JSON:', error);
-                hideLoadingSpinner(); // Asegurarse de ocultar el spinner incluso si hay un error
+                hideLoadingSpinner();
             });
     }
 
     function renderPagination(totalItems) {
         const pageCount = Math.ceil(totalItems / itemsPerPage);
 
-        // Limpiar paginación existente
         const pageButtons = pagination.querySelectorAll('.pagination-button');
         pageButtons.forEach(button => button.remove());
 
@@ -63,20 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateGallery() {
         const filteredItems = products.filter(product => {
-            return currentCategory === 'all' || product.category === currentCategory;
+            const matchesCategory = currentCategory === 'all' || product.category === currentCategory;
+            const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
+            return matchesCategory && matchesSearch;
         });
 
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const itemsToShow = filteredItems.slice(startIndex, endIndex);
 
-        gallery.innerHTML = ''; // Limpiar la galería antes de insertar los nuevos productos
+        gallery.innerHTML = '';
 
         itemsToShow.forEach(product => {
             const div = document.createElement('div');
             div.classList.add('product-item', 'p-3', 'border', 'rounded', 'shadow');
 
-            // Contenido del div basado en los datos del JSON
             div.innerHTML = `
                 <img src="${product.image}" class="h-auto max-w-full rounded-lg" alt="${product.name}">
                 <h2 class="text-xl font-semibold mt-2">${product.name}</h2>
@@ -87,9 +90,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         renderPagination(filteredItems.length);
-
-        window.scrollTo(0, 0); // Para desplazar al principio de la página
+        window.scrollTo(0, 0);
     }
+
+    function showSuggestions(suggestions) {
+        suggestionsContainer.innerHTML = '';
+        if (suggestions.length === 0) {
+            suggestionsContainer.classList.add('hidden');
+            return;
+        }
+
+        suggestions.forEach(suggestion => {
+            const div = document.createElement('div');
+            div.className = 'suggestion-item';
+            div.textContent = suggestion.name;
+            div.addEventListener('click', () => {
+                searchInput.value = suggestion.name;
+                searchQuery = suggestion.name;
+                currentPage = 1;
+                suggestionsContainer.classList.add('hidden');
+                updateGallery();
+            });
+            suggestionsContainer.appendChild(div);
+        });
+
+        suggestionsContainer.classList.remove('hidden');
+    }
+
+    function filterSuggestions(query) {
+        if (!query) {
+            suggestionsContainer.classList.add('hidden');
+            return;
+        }
+
+        const suggestions = products.filter(product => 
+            product.name.toLowerCase().includes(query.toLowerCase())
+        );
+
+        showSuggestions(suggestions);
+    }
+
+    searchInput.addEventListener('input', function() {
+        searchQuery = this.value;
+        currentPage = 1;
+        filterSuggestions(searchQuery);
+        updateGallery();
+    });
 
     prevPageButton.addEventListener('click', () => {
         if (currentPage > 1) {
@@ -114,22 +160,34 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             currentCategory = this.dataset.category;
             currentPage = 1;
-
-            // Eliminar la clase de resaltado de todos los botones
             document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('border-2', 'border-gray-50', 'scale-110', 'text-white', 'botonClaro'));
-
-            // Añadir la clase de resaltado al botón seleccionado
             this.classList.add('border-2', 'border-gray-50', 'scale-110', 'text-white', 'botonClaro');
-
             updateGallery();
         });
     });
 
-    // Resaltar el botón de la categoría "Todo" por defecto
     const defaultButton = document.querySelector('.btn[data-category="all"]');
     if (defaultButton) {
         defaultButton.classList.add('border-2', 'border-gray-50', 'scale-110', 'text-white', 'botonClaro');
     }
 
-    loadJSONData(); // Llamar a la función para cargar los datos JSON
+    searchInput.addEventListener('focus', function() {
+        this.classList.add('border-2', 'border-gray-50');
+    });
+
+    searchInput.addEventListener('blur', function() {
+        this.classList.remove('border-2', 'border-gray-50');
+    });
+
+    
+    searchInput.addEventListener('focus', function() {
+        lupaIcono.classList.add('botonClaro');
+    });
+
+    searchInput.addEventListener('blur', function() {
+        lupaIcono.classList.remove('botonClaro');
+    });
+
+
+    loadJSONData();
 });

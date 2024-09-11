@@ -26,7 +26,7 @@ html, body {
 }
 
 .shadowColor2{
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.522));
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.629));
 }
 
 .sombraBoton{
@@ -118,6 +118,10 @@ a .borde {
     box-shadow: rgba(77, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(41, 0, 77, 0.297) 0px 18px 36px -18px inset;
 }
 
+.sombraInset2{
+    box-shadow: rgba(77, 50, 93, 0.049) 0px 30px 60px -12px inset, rgba(41, 0, 77, 0.077) 0px 18px 36px -18px inset;
+}
+
 .textoIndex{
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.558), rgba(192, 73, 251, 0.188)),
@@ -130,10 +134,43 @@ a .borde {
 
 .textoIndex2{
     background-image: 
-        linear-gradient(rgba(187, 0, 255, 0.155), rgba(60, 1, 90, 0.686)),
+        linear-gradient(rgba(255, 255, 255, 0.292), rgba(71, 1, 106, 0.5)),
         url("https://png.pngtree.com/thumb_back/fw800/background/20231229/pngtree-aesthetic-watercolor-gradient-hand-painted-pastel-purple-background-with-light-lavender-image_13844899.png");
     background-size: cover;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+}
+
+.suggestion-item{
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f02c;
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+@media (min-width: 1280px) {
+    .navProductos {
+        backdrop-filter: blur(16px);
+    }
+}
+
+@media (min-width: 768px) {
+    .navProductos {
+        backdrop-filter: blur(16px);
+    }
+}
+
+#search-input:focus {
+    box-shadow: none; /* Asegura que no haya sombra alrededor del input */
+    border-color: white;
+}
+
+.tamañoSugerencia{
+    width: calc(100% - 40px);
 }
