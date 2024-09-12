@@ -9,7 +9,7 @@ export function showSuggestions(suggestions) {
     suggestionsContainer.innerHTML = '';
     
     if (suggestions.length === 0) {
-        suggestionsContainer.innerHTML = '<div class="text-gray-50 p-1">No hay resultados que mostrar</div>';
+        suggestionsContainer.innerHTML = '<div class="text-gray-50 p-1">No hay resultados para mostrar</div>';
         suggestionsContainer.classList.remove('hidden');
         return;
     }

@@ -1,25 +1,23 @@
 // src/js/componentes/loading.js
 
-import { updateGallery } from './gallery.js';
-
 export function toggleLoadingSpinner(visible) {
-    const loadingSpinner = document.getElementById('loading-spinner');
+    const loadingSpinner = document.getElementById('loading-spinner'); // Asegúrate de que este ID sea correcto
     if (loadingSpinner) {
         loadingSpinner.style.display = visible ? 'flex' : 'none';
+    } else {
+        console.error('No se encontró el elemento con el ID "loading-spinner".');
     }
 }
 
 export function loadJSONData() {
     toggleLoadingSpinner(true);
-    fetch('../../public/data/productos.json')
+    return fetch('../../public/data/productos.json')
         .then(response => response.json())
-        .then(data => {
-            window.products = data;
-            updateGallery(); // Asegúrate de que updateGallery esté disponible globalmente
-            toggleLoadingSpinner(false);
-        })
         .catch(error => {
             console.error('Error al cargar el JSON:', error);
+            throw error;
+        })
+        .finally(() => {
             toggleLoadingSpinner(false);
         });
 }

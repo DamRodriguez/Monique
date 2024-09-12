@@ -82,6 +82,10 @@
 
             <div id="gallery" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:gap-10 md:gap-8 gap-6 mt-5 md:mt-7 xl:mt-10"></div>
 
+            <div id="no-products-message" class="hidden h-full">
+                <p class="text-center xl:p-20 md:p-15 p-10 text-gray-100 rounded-md backdrop-blur-sm text-shadow-md shadowColor2 sombraInset2 text-lg md:text-xl xl:text-2xl">No hay productos para mostrar</p>
+            </div>
+
             <div id="pagination" class="flex items-center justify-center py-4 mt-4">
                 <button id="prev-page" class="pagination-arrow">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
@@ -95,11 +99,18 @@
                     </svg>
                 </button>
             </div>
+
+            
+
+            <div id="loading-spinner" class="fixed inset-0 flex items-center justify-center bg-transparent z-50">
+                <div class="loader"></div>
+            </div>
+            
         </div>
 
-        <div id="loading-spinner" class="fixed inset-0 flex items-center justify-center bg-transparent z-50">
-            <div class="loader"></div>
-        </div>
+        
+
+        
         
     </main>
 
