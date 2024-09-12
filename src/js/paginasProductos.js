@@ -39,27 +39,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderPagination(totalItems) {
         const pageCount = Math.ceil(totalItems / itemsPerPage);
-
+    
+        // Eliminar los botones de paginación existentes
         const pageButtons = pagination.querySelectorAll('.pagination-button');
         pageButtons.forEach(button => button.remove());
-
+    
         for (let i = 1; i <= pageCount; i++) {
             const button = document.createElement('button');
             button.textContent = i;
-            button.className = 'pagination-button mx-1 px-3 py-1 border rounded';
+            button.className = 'pagination-button mx-1 w-1 px-5 py-0 sombraInset hover:border-2 shadowColor2 transition-transform ease-in duration-100 botonLavanda2 btn border-0 text-shadow-lg group hover:scale-105 hover:border-white text-base md:text-base xl:text-lg text-gray-50 font-semibold';
             button.dataset.page = i;
+    
+            // Agregar clases para el botón actual
             if (i === currentPage) {
-                button.classList.add('bg-blue-500', 'text-white');
+                button.classList.add('border-2', 'border-gray-50', 'text-white', 'botonClaro');
             }
+    
+            // Añadir evento de clic al botón
             button.addEventListener('click', () => {
                 currentPage = i;
                 updateGallery();
             });
+    
+            // Insertar el botón en el contenedor de paginación
             pagination.insertBefore(button, nextPageButton);
         }
-
+    
+        // Actualizar el estado de los botones de navegación
         prevPageButton.classList.toggle('disabled', currentPage === 1);
         nextPageButton.classList.toggle('disabled', currentPage === pageCount);
+    
+        // Agregar clases específicas para los botones de navegación
+        prevPageButton.className = `
+            pagination-arrow text-gray-50 mr-2 font-bold
+            ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-125 transform transition-all text-white'}
+        `;
+    
+        nextPageButton.className = `
+            pagination-arrow text-gray-50 ml-2 font-bold
+            ${currentPage === pageCount ? 'opacity-50 cursor-not-allowed' : 'hover:scale-125 transform transition-all text-white'}
+        `;
     }
 
     function updateGallery() {
@@ -75,17 +94,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
         gallery.innerHTML = '';
 
-        itemsToShow.forEach(product => {
+        itemsToShow.forEach((product, index) => {
+            // Crear el contenedor del producto
             const div = document.createElement('div');
-            div.classList.add('product-item', 'p-3', 'border', 'rounded', 'shadow');
+            div.className = 'product-item p-5 border rounded shadow hover:bg-black';
+            div.style.cursor = 'pointer'; // Añadir cursor pointer para indicar que es clickeable
 
+            // Crear un ID único para el modal
+            const modalId = `modal-${index}`;
+
+            // HTML del producto con el modal
             div.innerHTML = `
-                <img src="${product.image}" class="h-auto max-w-full rounded-lg" alt="${product.name}">
+                <img src="${product.image}" class="h-auto max-w-full rounded-md" alt="${product.name}">
                 <h2 class="text-xl font-semibold mt-2">${product.name}</h2>
-                <p class="text-gray-600">${product.description}</p>
+                <!-- Modal -->
+                <dialog id="${modalId}" class="modal cursor-auto backdrop-blur-sm shadow-lg">
+                    <div class="modal-box w-11/12 max-w-5xl h-2/3 grid"> 
+                        <h2 class="text-3xl md:text-4xl xl:text-6xl font-bold">${product.name}</h2>
+                        <p class="py-4">${product.description}</p>
+                        <div class="modal-action items-end">
+                            <form method="dialog">
+                                <!-- if there is a button, it will close the modal -->
+                                <button class="btn">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
             `;
 
             gallery.appendChild(div);
+
+            // Añadir evento de clic al contenedor del producto para abrir el modal
+            div.addEventListener('click', () => {
+                document.getElementById(modalId).showModal();
+            });
         });
 
         renderPagination(filteredItems.length);
@@ -98,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (suggestions.length === 0) {
             const noResultsDiv = document.createElement('div');
             noResultsDiv.className = 'text-gray-50 p-1';
-            noResultsDiv.textContent = 'No hay nada que mostrar :(';
+            noResultsDiv.textContent = 'No hay resultados que mostrar';
             suggestionsContainer.appendChild(noResultsDiv);
             suggestionsContainer.classList.remove('hidden');
             return;
@@ -205,3 +247,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadJSONData();
 });
+
+
