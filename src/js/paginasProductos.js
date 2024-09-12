@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         itemsToShow.forEach((product, index) => {
             // Crear el contenedor del producto
             const div = document.createElement('div');
-            div.className = 'product-item p-5 border rounded-md shadow hover:bg-black hover:bg-opacity-20 border-2 border-white sombraInset ';
+            div.className = 'grid overflow-hidden product-item rounded-sm shadow hover:scale-105 transform transition-all ease-in rounded-tl-3xl rounded-br-3xl itemFondo shadowColor2 sombraInset2 itemFondo hover:border-2 hover:border-white';
             div.style.cursor = 'pointer'; // Añadir cursor pointer para indicar que es clickeable
 
             // Crear un ID único para el modal
@@ -105,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // HTML del producto con el modal
             div.innerHTML = `
-                <img src="${product.image}" class="shadowColor2 shadow-lg h-auto max-w-full rounded-tl-3xl rounded-br-3xl rounded-sm" alt="${product.name}">
-                <h2 class="xl:text-2xl md:text-2x1 text-lg font-semibold mt-5 text-shadow-lg">${product.name}</h2>
+                <img src="${product.image}" class="opacity-0 shadowColor2 shadow-lg h-auto max-w-full rounded-tl-3xl rounded-br-3xl rounded-sm" alt="${product.name}">
+                <h2 class="text-end pr-3 md:pr-6 xl:pr-8 relative backdrop-blur-lg bg-white bg-opacity-20 sombraTop w-full h-full xl:text-2xl md:text-2x1 text-lg font-semibold mt-5 text-shadow-lg text-gray-50">${product.name}</h2>
 
                 <!-- Modal -->
                 <dialog id="${modalId}" class="modal cursor-auto backdrop-blur-sm shadow-lg">
