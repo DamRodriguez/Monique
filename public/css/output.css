@@ -4184,6 +4184,11 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(255 255 255 / 0.5);
 }
 
+.bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(195 221 253 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-10 {
   --tw-bg-opacity: 0.1;
 }
@@ -4434,9 +4439,9 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-black {
+.text-blue-700 {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(26 86 219 / var(--tw-text-opacity));
 }
 
 .text-opacity-20 {
@@ -4730,7 +4735,7 @@ a .borde {
 
 .textoIndex2{
   background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.292), rgba(71, 1, 106, 0.5)),
+        linear-gradient(rgba(255, 255, 255, 0.292), rgba(71, 1, 106, 0.273)),
         url("https://png.pngtree.com/thumb_back/fw800/background/20231229/pngtree-aesthetic-watercolor-gradient-hand-painted-pastel-purple-background-with-light-lavender-image_13844899.png");
   background-size: cover;
   background-clip: text;

@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const suggestionsContainer = document.getElementById('suggestions');
     const lupaIcono = document.getElementById('lupa-icono');
-    
 
     let currentCategory = 'all';
     let currentPage = 1;
@@ -95,8 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showSuggestions(suggestions) {
         suggestionsContainer.innerHTML = '';
+
         if (suggestions.length === 0) {
-            suggestionsContainer.classList.add('hidden');
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'text-gray-50 p-1';
+            noResultsDiv.textContent = 'No hay nada que mostrar :(';
+            suggestionsContainer.appendChild(noResultsDiv);
+            suggestionsContainer.classList.remove('hidden');
             return;
         }
 
@@ -132,9 +136,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     searchInput.addEventListener('input', function() {
         searchQuery = this.value;
-        currentPage = 1;
         filterSuggestions(searchQuery);
+        currentPage = 1;
         updateGallery();
+    });
+
+    searchInput.addEventListener('focus', function() {
+        if (this.value.trim() !== '') {
+            suggestionsContainer.classList.remove('hidden');
+        }
+    });
+
+    searchInput.addEventListener('blur', function() {
+        if (this.value.trim() === '') {
+            suggestionsContainer.classList.add('hidden');
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+            suggestionsContainer.classList.add('hidden'); // Oculta las sugerencias
+        }
     });
 
     prevPageButton.addEventListener('click', () => {
@@ -173,21 +195,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     searchInput.addEventListener('focus', function() {
         this.classList.add('border-2', 'border-gray-50');
-    });
-
-    searchInput.addEventListener('blur', function() {
-        this.classList.remove('border-2', 'border-gray-50');
-    });
-
-    
-    searchInput.addEventListener('focus', function() {
         lupaIcono.classList.add('botonClaro');
     });
 
     searchInput.addEventListener('blur', function() {
+        this.classList.remove('border-2', 'border-gray-50');
         lupaIcono.classList.remove('botonClaro');
     });
-
 
     loadJSONData();
 });
