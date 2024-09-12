@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             div.innerHTML = `
                 <img src="${product.image}" class="opacity-0 shadowColor2 shadow-lg h-auto max-w-full rounded-tl-3xl rounded-br-3xl rounded-sm" alt="${product.name}">
-                <h2 class="text-end p-2 pr-4 md:pr-6 xl:pr-8 relative backdrop-blur-lg bg-white bg-opacity-20 sombraTop w-full h-full xl:text-2xl md:text-2x1 text-lg font-semibold mt-5 text-shadow-lg text-gray-50">${product.name}</h2>
+                <h2 class="text-end p-2 pr-4 md:pr-6 xl:pr-8 relative backdrop-blur-lg bg-white bg-opacity-25 sombraTop w-full h-full xl:text-2xl md:text-2x1 text-lg font-semibold mt-5 text-shadow-md text-gray-50">${product.name}</h2>
                 <dialog id="${modalId}" class="modal cursor-auto backdrop-blur-sm shadow-lg">
                     <div class="modal-box w-11/12 max-w-5xl h-2/3 grid"> 
                         <h2 class="text-3xl md:text-4xl xl:text-6xl font-bold">${product.name}</h2>
