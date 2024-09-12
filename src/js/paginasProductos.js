@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         itemsToShow.forEach((product, index) => {
             // Crear el contenedor del producto
             const div = document.createElement('div');
-            div.className = 'product-item p-5 border rounded shadow hover:bg-black';
+            div.className = 'product-item p-5 border rounded-md shadow hover:bg-black hover:bg-opacity-20 border-2 border-white sombraInset ';
             div.style.cursor = 'pointer'; // Añadir cursor pointer para indicar que es clickeable
 
             // Crear un ID único para el modal
@@ -105,8 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // HTML del producto con el modal
             div.innerHTML = `
-                <img src="${product.image}" class="h-auto max-w-full rounded-md" alt="${product.name}">
-                <h2 class="text-xl font-semibold mt-2">${product.name}</h2>
+                <img src="${product.image}" class="shadowColor2 shadow-lg h-auto max-w-full rounded-tl-3xl rounded-br-3xl rounded-sm" alt="${product.name}">
+                <h2 class="xl:text-2xl md:text-2x1 text-lg font-semibold mt-5 text-shadow-lg">${product.name}</h2>
+
                 <!-- Modal -->
                 <dialog id="${modalId}" class="modal cursor-auto backdrop-blur-sm shadow-lg">
                     <div class="modal-box w-11/12 max-w-5xl h-2/3 grid"> 
