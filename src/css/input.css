@@ -194,3 +194,11 @@ a .borde {
     width: calc(100% - 40px);
 }
 
+#loading-spinner {
+    display: none; /* Oculta el spinner al cargar la página */
+}
+
+#prev-page,
+#next-page {
+    display: none; /* Oculta las flechas al cargar la página */
+}
