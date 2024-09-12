@@ -16,21 +16,23 @@ export function updateGallery() {
     const prevPageButton = document.getElementById('prev-page');
     const nextPageButton = document.getElementById('next-page');
 
+    // Mostrar u ocultar mensaje y botones de paginación
     if (filteredItems.length === 0) {
         gallery.innerHTML = ''; // Vacía el contenedor de productos
         noProductsMessage.classList.remove('hidden'); // Muestra el mensaje
-        paginationButtonsContainer.classList.add('hidden'); // Oculta todos los botones de paginación
+        paginationButtonsContainer.classList.add('hidden'); // Oculta los botones de paginación
     } else {
         noProductsMessage.classList.add('hidden'); // Oculta el mensaje
         paginationButtonsContainer.classList.remove('hidden'); // Muestra los botones de paginación
 
         gallery.innerHTML = '';
 
+        // Carga solo los elementos visibles
         itemsToShow.forEach((product, index) => {
             const div = document.createElement('div');
             div.className = 'grid overflow-hidden product-item rounded-sm shadow hover:scale-105 transform transition-all ease-in rounded-tl-3xl rounded-br-3xl itemFondo shadowColor2 sombraInset2 itemFondo hover:border-2 hover:border-white';
             div.style.cursor = 'pointer';
-            const modalId = `modal-${index}`;
+            const modalId = `modal-${startIndex + index}`; // Ajuste para el ID del modal
 
             div.innerHTML = `
                 <img src="${product.image}" class="opacity-0 shadowColor2 shadow-lg h-auto max-w-full rounded-tl-3xl rounded-br-3xl rounded-sm" alt="${product.name}">
@@ -56,21 +58,10 @@ export function updateGallery() {
         });
 
         renderPagination(filteredItems.length);
-
-        // Actualiza la visibilidad y habilitación de los botones de paginación
-        const totalPages = Math.ceil(filteredItems.length / window.itemsPerPage);
-
-        // Deshabilitar botón anterior
-        prevPageButton.disabled = window.currentPage <= 1;
-
-        // Deshabilitar botón siguiente
-        nextPageButton.disabled = window.currentPage >= totalPages;
     }
 
     window.scrollTo(0, 0);
 }
-
-
 
 export function renderPagination(totalItems) {
     const itemsPerPage = 6;
@@ -80,9 +71,11 @@ export function renderPagination(totalItems) {
     const currentPage = window.currentPage;
     const pageCount = Math.ceil(totalItems / itemsPerPage);
 
+    // Limpiar los botones de paginación antiguos
     const pageButtons = Array.from(pagination.querySelectorAll('.pagination-button'));
     pageButtons.forEach(button => button.remove());
 
+    // Crear botones de página
     for (let i = 1; i <= pageCount; i++) {
         const button = document.createElement('button');
         button.textContent = i;
@@ -95,8 +88,9 @@ export function renderPagination(totalItems) {
         pagination.insertBefore(button, nextPageButton);
     }
 
-    prevPageButton.className = `pagination-arrow text-gray-50 mr-2 font-bold ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-125 transform transition-all text-white'}`;
-    nextPageButton.className = `pagination-arrow text-gray-50 ml-2 font-bold ${currentPage === pageCount ? 'opacity-50 cursor-not-allowed' : 'hover:scale-125 transform transition-all text-white'}`;
+    // Actualizar estado de los botones de paginación
     prevPageButton.classList.toggle('disabled', currentPage === 1);
     nextPageButton.classList.toggle('disabled', currentPage === pageCount);
+    prevPageButton.disabled = currentPage === 1;
+    nextPageButton.disabled = currentPage === pageCount;
 }
