@@ -12,81 +12,56 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentCategory = 'all';
     let currentPage = 1;
     let products = [];
-    let searchQuery = ''; // Variable para almacenar la consulta de búsqueda
+    let searchQuery = '';
 
-    function showLoadingSpinner() {
-        loadingSpinner.style.display = 'flex';
-    }
-
-    function hideLoadingSpinner() {
-        loadingSpinner.style.display = 'none';
+    function toggleLoadingSpinner(visible) {
+        loadingSpinner.style.display = visible ? 'flex' : 'none';
     }
 
     function loadJSONData() {
-        showLoadingSpinner();
+        toggleLoadingSpinner(true);
         fetch('../../public/data/productos.json')
             .then(response => response.json())
             .then(data => {
                 products = data;
                 updateGallery();
-                hideLoadingSpinner();
+                toggleLoadingSpinner(false);
             })
             .catch(error => {
                 console.error('Error al cargar el JSON:', error);
-                hideLoadingSpinner();
+                toggleLoadingSpinner(false);
             });
     }
 
     function renderPagination(totalItems) {
         const pageCount = Math.ceil(totalItems / itemsPerPage);
-    
-        // Eliminar los botones de paginación existentes
-        const pageButtons = pagination.querySelectorAll('.pagination-button');
+        const pageButtons = Array.from(pagination.querySelectorAll('.pagination-button'));
+
         pageButtons.forEach(button => button.remove());
-    
+
         for (let i = 1; i <= pageCount; i++) {
             const button = document.createElement('button');
             button.textContent = i;
-            button.className = 'pagination-button mx-1 w-1 px-5 py-0 sombraInset hover:border-2 shadowColor2 transition-transform ease-in duration-100 botonLavanda2 btn border-0 text-shadow-lg group hover:scale-105 hover:border-white text-base md:text-base xl:text-lg text-gray-50 font-semibold';
+            button.className = `pagination-button mx-1 w-1 px-5 py-0 sombraInset hover:border-2 shadowColor2 transition-transform ease-in duration-100 botonLavanda2 btn border-0 text-shadow-lg group hover:scale-105 hover:border-white text-base md:text-base xl:text-lg text-gray-50 font-semibold${i === currentPage ? ' border-2 border-gray-50 text-white botonClaro' : ''}`;
             button.dataset.page = i;
-    
-            // Agregar clases para el botón actual
-            if (i === currentPage) {
-                button.classList.add('border-2', 'border-gray-50', 'text-white', 'botonClaro');
-            }
-    
-            // Añadir evento de clic al botón
             button.addEventListener('click', () => {
                 currentPage = i;
                 updateGallery();
             });
-    
-            // Insertar el botón en el contenedor de paginación
             pagination.insertBefore(button, nextPageButton);
         }
-    
-        // Actualizar el estado de los botones de navegación
+
+        prevPageButton.className = `pagination-arrow text-gray-50 mr-2 font-bold ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-125 transform transition-all text-white'}`;
+        nextPageButton.className = `pagination-arrow text-gray-50 ml-2 font-bold ${currentPage === pageCount ? 'opacity-50 cursor-not-allowed' : 'hover:scale-125 transform transition-all text-white'}`;
         prevPageButton.classList.toggle('disabled', currentPage === 1);
         nextPageButton.classList.toggle('disabled', currentPage === pageCount);
-    
-        // Agregar clases específicas para los botones de navegación
-        prevPageButton.className = `
-            pagination-arrow text-gray-50 mr-2 font-bold
-            ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-125 transform transition-all text-white'}
-        `;
-    
-        nextPageButton.className = `
-            pagination-arrow text-gray-50 ml-2 font-bold
-            ${currentPage === pageCount ? 'opacity-50 cursor-not-allowed' : 'hover:scale-125 transform transition-all text-white'}
-        `;
     }
 
     function updateGallery() {
-        const filteredItems = products.filter(product => {
-            const matchesCategory = currentCategory === 'all' || product.category === currentCategory;
-            const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
-            return matchesCategory && matchesSearch;
-        });
+        const filteredItems = products.filter(product => 
+            (currentCategory === 'all' || product.category === currentCategory) &&
+            product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
 
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
@@ -95,27 +70,20 @@ document.addEventListener('DOMContentLoaded', function() {
         gallery.innerHTML = '';
 
         itemsToShow.forEach((product, index) => {
-            // Crear el contenedor del producto
             const div = document.createElement('div');
             div.className = 'grid overflow-hidden product-item rounded-sm shadow hover:scale-105 transform transition-all ease-in rounded-tl-3xl rounded-br-3xl itemFondo shadowColor2 sombraInset2 itemFondo hover:border-2 hover:border-white';
-            div.style.cursor = 'pointer'; // Añadir cursor pointer para indicar que es clickeable
-
-            // Crear un ID único para el modal
+            div.style.cursor = 'pointer';
             const modalId = `modal-${index}`;
 
-            // HTML del producto con el modal
             div.innerHTML = `
                 <img src="${product.image}" class="opacity-0 shadowColor2 shadow-lg h-auto max-w-full rounded-tl-3xl rounded-br-3xl rounded-sm" alt="${product.name}">
-                <h2 class="text-end pr-3 md:pr-6 xl:pr-8 relative backdrop-blur-lg bg-white bg-opacity-20 sombraTop w-full h-full xl:text-2xl md:text-2x1 text-lg font-semibold mt-5 text-shadow-lg text-gray-50">${product.name}</h2>
-
-                <!-- Modal -->
+                <h2 class="text-end p-2 pr-4 md:pr-6 xl:pr-8 relative backdrop-blur-lg bg-white bg-opacity-20 sombraTop w-full h-full xl:text-2xl md:text-2x1 text-lg font-semibold mt-5 text-shadow-lg text-gray-50">${product.name}</h2>
                 <dialog id="${modalId}" class="modal cursor-auto backdrop-blur-sm shadow-lg">
                     <div class="modal-box w-11/12 max-w-5xl h-2/3 grid"> 
                         <h2 class="text-3xl md:text-4xl xl:text-6xl font-bold">${product.name}</h2>
                         <p class="py-4">${product.description}</p>
                         <div class="modal-action items-end">
                             <form method="dialog">
-                                <!-- if there is a button, it will close the modal -->
                                 <button class="btn">Close</button>
                             </form>
                         </div>
@@ -125,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             gallery.appendChild(div);
 
-            // Añadir evento de clic al contenedor del producto para abrir el modal
             div.addEventListener('click', () => {
                 document.getElementById(modalId).showModal();
             });
@@ -139,10 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         suggestionsContainer.innerHTML = '';
 
         if (suggestions.length === 0) {
-            const noResultsDiv = document.createElement('div');
-            noResultsDiv.className = 'text-gray-50 p-1';
-            noResultsDiv.textContent = 'No hay resultados que mostrar';
-            suggestionsContainer.appendChild(noResultsDiv);
+            suggestionsContainer.innerHTML = '<div class="text-gray-50 p-1">No hay resultados que mostrar</div>';
             suggestionsContainer.classList.remove('hidden');
             return;
         }
@@ -198,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('click', function(e) {
         if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
-            suggestionsContainer.classList.add('hidden'); // Oculta las sugerencias
+            suggestionsContainer.classList.add('hidden');
         }
     });
 
@@ -210,9 +174,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     nextPageButton.addEventListener('click', () => {
-        const totalItems = products.filter(product => {
-            return currentCategory === 'all' || product.category === currentCategory;
-        }).length;
+        const totalItems = products.filter(product => 
+            currentCategory === 'all' || product.category === currentCategory
+        ).length;
         const totalPages = Math.ceil(totalItems / itemsPerPage);
 
         if (currentPage < totalPages) {
@@ -248,5 +212,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadJSONData();
 });
+
 
 
