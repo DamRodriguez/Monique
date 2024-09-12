@@ -20,4 +20,6 @@ module.exports = {
   daisyui: {
     themes: ["light", "dark"],
   },
-}
+  // Mantén la purga activa para producción
+  mode: 'jit', // Activar el modo "just-in-time" para optimización
+};
