@@ -1,35 +1,19 @@
-import { loadProducts } from '../js/productos/loadProducts';
-import { updateGallery } from '../js/productos/galleryRenderer.js';
-import { renderPagination } from '../js/productos/pagination.js';
+import { loadJSONData } from './components/loadJSONData.js';
+import { setupSearchInput } from '../components/setupSearchInput.js';
+import { setupPaginationButtons } from '../components/setupPaginationButtons.js';
+import { setupCategoryButtons } from '../components/setupCategoryButtons.js';
+import { setupSearchInputStyles } from '../components/setupSearchInputStyles.js';
 
 document.addEventListener('DOMContentLoaded', function() {
-    const itemsPerPage = 6;
-    const gallery = document.getElementById('gallery');
-    const pagination = document.getElementById('pagination');
-    const prevPageButton = document.getElementById('prev-page');
-    const nextPageButton = document.getElementById('next-page');
-    const loadingSpinner = document.getElementById('loading-spinner');
-    const searchInput = document.getElementById('search-input');
-    const suggestionsContainer = document.getElementById('suggestions');
-    const lupaIcono = document.getElementById('lupa-icono');
-
+    let products = [];
     let currentCategory = 'all';
     let currentPage = 1;
-    let products = [];
+    const itemsPerPage = 6;
     let searchQuery = '';
 
-    function toggleLoadingSpinner(visible) {
-        loadingSpinner.style.display = visible ? 'flex' : 'none';
-    }
-
-    loadProducts(toggleLoadingSpinner).then(data => {
-        products = data;
-        updateGallery(products, currentCategory, searchQuery, itemsPerPage, currentPage, gallery, (totalItems) => {
-            renderPagination(totalItems, itemsPerPage, currentPage, pagination, prevPageButton, nextPageButton, () => {
-                updateGallery(products, currentCategory, searchQuery, itemsPerPage, currentPage, gallery);
-            });
-        });
-    });
-
-    // Resto de la lógica de eventos
+    loadJSONData(products);
+    setupSearchInput(products, currentPage, currentCategory, searchQuery);
+    setupPaginationButtons(products, itemsPerPage, currentPage);
+    setupCategoryButtons(currentCategory, currentPage, searchQuery);
+    setupSearchInputStyles();
 });
