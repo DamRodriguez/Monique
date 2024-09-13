@@ -40,7 +40,7 @@ export function updateGallery() {
                         <p class="py-4">${product.description}</p>
                         <div class="modal-action items-end">
                             <form method="dialog">
-                                <button class="btn">Close</button>
+                                <button class="btn" id="close-${modalId}">Close</button>
                             </form>
                         </div>
                     </div>
@@ -50,7 +50,12 @@ export function updateGallery() {
             gallery.appendChild(div);
 
             div.addEventListener('click', () => {
-                document.getElementById(modalId).showModal();
+                document.getElementById(modalId).showModal(); // Muestra el modal
+            });
+
+            // Cierra el modal al hacer clic en el botón de cierre
+            document.getElementById(`close-${modalId}`).addEventListener('click', () => {
+                document.getElementById(modalId).close(); // Cierra el modal
             });
         });
 

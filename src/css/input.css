@@ -202,3 +202,15 @@ a .borde {
 #next-page {
     display: none; /* Oculta las flechas al cargar la página */
 }
+
+.modal {
+    transition: opacity 0s ease;
+}
+
+.modal.hidden {
+    display: none;
+    opacity: 0;
+}
+
+
+
