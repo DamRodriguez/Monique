@@ -204,13 +204,10 @@ a .borde {
 }
 
 .modal {
-    transition: opacity 0s ease;
+    transition: opacity 0s;
 }
 
-.modal.hidden {
-    display: none;
-    opacity: 0;
-}
+
 
 
 

@@ -4930,12 +4930,7 @@ a .borde {
 }
 
 .modal {
-  transition: opacity 0s ease;
-}
-
-.modal.hidden {
-  display: none;
-  opacity: 0;
+  transition: opacity 0s;
 }
 
 .hover\:scale-105:hover {
@@ -5519,6 +5514,8 @@ a .borde {
 .rtl\:space-x-reverse:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 1;
 }
+
+
 
 
 
